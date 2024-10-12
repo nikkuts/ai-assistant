@@ -11,15 +11,14 @@ const Chat = () => {
     const newMessage = { text: input, user: 'user' };
     setMessages([...messages, newMessage]);
 
-    // Відправлення запиту на сервер
     const response = await fetch('http://localhost:5000/api/chat', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ message: input }),
     });
+    
     const data = await response.json();
-
-    // Додавання відповіді AI до списку повідомлень
+    
     const aiMessage = { text: data.message, user: 'ai' };
     setMessages([...messages, newMessage, aiMessage]);
     setInput('');

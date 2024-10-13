@@ -1,0 +1,114 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+
+    @media screen and (min-width: 480px) {
+        max-width: 480px;
+    }
+
+        @media screen and (min-width: 768px) {
+            max-width: 768px;
+        }
+
+                @media screen and (min-width: 1200px) {
+                    max-width: 1200px;
+                }
+}
+
+h1 {
+    text-align: center;
+    padding-left: 10px;
+}
+
+.chatBox {
+    max-width: 650px;
+    width: 100%;
+    padding: 0px 10px;
+    margin-bottom: 20px;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+
+.chatBox::-webkit-scrollbar {
+    display: none;
+}
+
+.message {
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    background-color: #f1f1f1;
+    font-size: 14px;
+    line-height: 1.5;
+
+    @media screen and (min-width: 768px) {
+        font-size: 16px;
+    }
+}
+
+.message.user {
+    background-color: #d1e7ff;
+}
+
+.form {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    max-width: 650px;
+    width: 100%;
+    padding-left: 10px;
+    margin-bottom: 20px;
+}
+
+.textarea {
+    flex-grow: 1;
+    padding: 10px;
+    font-size: 14px;
+    line-height: 1.5;
+    min-height: calc(1.5em * 1);
+    /* max-height: calc(1.5em * 10); */
+    box-sizing: border-box;
+    outline: none;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    white-space: normal;
+    overflow-wrap: break-word;
+    resize: none;
+    overflow-y: scroll;
+    scrollbar-width: none;
+
+    @media screen and (min-width: 768px) {
+        padding: 8px 10px;
+        font-size: 16px;
+    }
+}
+
+.textarea::-webkit-scrollbar {
+    display: none;
+}
+
+.textarea::placeholder {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.button {
+    height: 40px;
+    margin-left: 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}

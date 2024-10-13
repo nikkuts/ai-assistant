@@ -30,6 +30,20 @@ const Chat = () => {
     setInput('');
   };
 
+  const handleKeyDown = e => {
+    const isMobile = window.innerWidth <= 768; 
+  
+    if (e.key === 'Enter') {
+      if (isMobile) {
+        return;
+      }
+      if (!e.shiftKey) {
+        e.preventDefault();
+        handleSubmit(e); 
+      }
+    }
+  };
+
   const autoResize = () => {
     const textarea = textareaRef.current;
     textarea.style.height = 'auto';  
@@ -45,6 +59,12 @@ const Chat = () => {
       chatBoxRef.current.scrollTop = chatBoxRef.current.scrollHeight;
     }
   }, [messages]);
+
+  useEffect(() => {
+    if (textareaRef.current) {
+      textareaRef.current.focus();
+    }
+  }, []);
 
   return (
     <div className={css.container}>
@@ -77,6 +97,7 @@ const Chat = () => {
           placeholder="Write a message"
           rows={1}
           onChange={(e) => setInput(e.target.value)}
+          onKeyDown={handleKeyDown}
           className={css.textarea}
         />
         <button
